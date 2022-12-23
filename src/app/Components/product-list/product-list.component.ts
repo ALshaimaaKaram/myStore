@@ -10,6 +10,8 @@ export class ProductListComponent {
   productsList: any;
 
   constructor(private productItemService: ProductItemService) {
+  //constructor() {
+
     console.log("hhh");
     this.getAllProductItems();
 }

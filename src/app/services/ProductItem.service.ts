@@ -9,7 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class ProductItemService {
 
-constructor(private httpService: HttpClient, private router:Router) { }
+  productsList:any;
+//constructor() {
+constructor(private httpService: HttpClient, private router:Router) {
+
+}
 
 getAllProductItems(): Observable<IProductItem[]> {
   const httpOption = {
@@ -17,12 +21,14 @@ getAllProductItems(): Observable<IProductItem[]> {
       'content-type': 'Application/JSON'
     })
   }
-
+  console.log("hello");
+  //this.productsList = [];
+  //return this.productsList;
   return this.httpService.get<IProductItem[]>("../../assets/MOCK_DATA.json", httpOption);
   //return this.httpService.get<IProductItem>(`${environment.APIURL}/Product`, httpOption);
 }
 
-getProductByID(pID: string): Observable<IProductItem> {
-  return this.httpService.get<IProductItem>(`assets/MOCK_DATA.json/${pID}`)
-}
+// getProductByID(pID: string): Observable<IProductItem> {
+//   return this.httpService.get<IProductItem>(`assets/MOCK_DATA.json/${pID}`)
+// }
 }
