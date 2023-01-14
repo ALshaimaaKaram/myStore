@@ -2,9 +2,9 @@
   <div class="position-relative header">
      <a [routerLink]="['/Product',product.id]"><img [src]="product.image" class="card-img-top position-relative"></a>
   </div>
-  <div class="px-2">
+  <div class="p-3">
     <h4>{{product.name}}</h4>
-    <div class="price mt-1">
+    <div class="price mt-3">
       <span class="text-dark">{{product.price | currency}}</span>
     <!-- <button class="btn btn-primary mt-2" (click)="addToCart()">Add to cart</button> -->
   </div>

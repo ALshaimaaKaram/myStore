@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProductItem } from '../models/IProductItem';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { find, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductItemService {
 
-  productsList:any;
+  productsList: any;
+  product: any;
 //constructor() {
 constructor(private httpService: HttpClient, private router:Router) {
 
@@ -28,7 +29,10 @@ getAllProductItems(): Observable<IProductItem[]> {
   //return this.httpService.get<IProductItem>(`${environment.APIURL}/Product`, httpOption);
 }
 
-// getProductByID(pID: string): Observable<IProductItem> {
-//   return this.httpService.get<IProductItem>(`assets/MOCK_DATA.json/${pID}`)
-// }
+getProductByID(pID: number): Observable<IProductItem | undefined> {
+  this.product = this.httpService.get<IProductItem[]>("../../assets/MOCK_DATA.json").pipe(
+    map((products) => products.find(product => product.id === pID)));
+    return this.product;
+};
+
 }

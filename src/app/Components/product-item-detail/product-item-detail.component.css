@@ -1,0 +1,94 @@
+.mainimg {
+  width: 100%;
+  height: 500px;
+  background: #fff;
+  overflow: hidden;
+  padding: 0;
+  padding-bottom: 1px;
+}
+
+.mainimg img {
+  /* width: 80%; */
+  height: 500px;
+  margin: 0px;
+  vertical-align: middle;
+  background-color: white;
+}
+
+
+.btn {
+  height: 70px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 80%;
+  border-radius: 6px;
+}
+
+.cart {
+  color: #783392;
+  background-color: #fcbf14;
+  border-color: #f3b403 #daa203 #c18f02;
+  border-style: solid;
+  border-width: 1px;
+  background: linear-gradient(180deg, #fdd86f, #fcbf14);
+}
+
+.lockicon {
+  border: 1px solid #0249ab;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  margin-right: 10px;
+  padding: 3px;
+}
+
+.lockparg span{
+  font-size: 14px;
+}
+
+.lockparg{
+  line-height: 18px;
+}
+
+.delivery p{
+  color: #555;
+  font-size: 15px;
+  padding-left: 8px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.delivery a{
+  color: #555;
+}
+
+h3
+{
+  font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    line-height: 1.1;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body li
+{
+  list-style:disc;
+}
+
+.desc
+{
+  max-width: 50%;
+}
+
+.fas
+{
+  color: orange;
+}
+
+.far
+{
+  color: orange;
+}
