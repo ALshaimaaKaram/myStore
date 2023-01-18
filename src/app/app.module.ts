@@ -8,6 +8,9 @@ import { ProductItemComponent } from './Components/product-item/product-item.com
 import { ProductItemDetailComponent } from './Components/product-item-detail/product-item-detail.component';
 import { ConfirmationComponent } from './Components/confirmation/confirmation.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { CheckoutFormComponent } from './Components/checkout-form/checkout-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,15 @@ import { CartComponent } from './Components/cart/cart.component';
     ProductItemComponent,
     ProductItemDetailComponent,
     ConfirmationComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent,
+    CheckoutFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

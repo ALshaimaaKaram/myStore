@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/Cart.service';
 import { ProductItemService } from 'src/app/services/ProductItem.service';
 
 @Component({
@@ -8,11 +9,13 @@ import { ProductItemService } from 'src/app/services/ProductItem.service';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent {
+
   productSentedId: any;
   product: any;
 
   constructor(private activeRoute: ActivatedRoute,
-              private productItemService: ProductItemService) {
+              private productItemService: ProductItemService,
+              private cartService:CartService) {
 
     this.activeRoute.paramMap.subscribe(
       (params) => {
@@ -25,5 +28,10 @@ export class ProductItemDetailComponent {
         })
       }
     )
+  }
+
+  addToCart(){
+    this.cartService.addToshppingCart(this.product)
+    window.alert('Your product has been added to the cart!');
   }
 }

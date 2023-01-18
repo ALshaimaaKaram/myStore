@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CartService } from 'src/app/services/Cart.service';
 
 @Component({
   selector: 'app-product-item',
@@ -6,15 +7,13 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
-  src:string = "";
-  name:string = "";
-  price:number = 0;
 
   @Input() product:any;
-  //constructor(private cartService:CartService) {
+  constructor(private cartService:CartService) {
   }
 
-  // addToCart(){
-  //   this.cartService.addToshppingCart(this.product)
-  // }
-
+  addToCart(){
+    this.cartService.addToshppingCart(this.product)
+    window.alert('Your product has been added to the cart!');
+  }
+}

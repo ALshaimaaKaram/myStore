@@ -1,1 +1,12 @@
-<p>cart works!</p>
+<h3>Cart</h3>
+
+<div class="alert alert-primary" *ngFor="let item of items">
+  <div class="row">
+    <span>{{ item.name }}</span>
+    <span class="mx-5">{{ item.price | currency }}</span>
+  </div>
+</div>
+
+<div>
+  <button routerLink="/checkoutform" class="btn btn-outline-primary">CheckOut</button>
+</div>
