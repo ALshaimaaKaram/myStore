@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { IProductItem } from 'src/app/models/IProductItem';
 import { ProductItemService } from 'src/app/services/ProductItem.service';
 
 @Component({
@@ -8,13 +9,14 @@ import { ProductItemService } from 'src/app/services/ProductItem.service';
 })
 export class ProductListComponent {
   productsList: any;
+  product: IProductItem[] = [];
+  @Output() products: EventEmitter<IProductItem[]> | undefined;
 
   constructor(private productItemService: ProductItemService) {
-  //constructor() {
-
-    console.log("hhh");
+    this.products = new EventEmitter<IProductItem[]>
     this.getAllProductItems();
 }
+
 
 getAllProductItems()
   {

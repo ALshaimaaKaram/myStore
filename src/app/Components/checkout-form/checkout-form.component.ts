@@ -13,6 +13,9 @@ export class CheckoutFormComponent {
 
   checkoutForm : FormGroup = {} as FormGroup;
 
+  name:string = '';
+  address: string = '';
+  phone: number = 0;
   constructor(private cartService: CartService,
               private formBuilder: FormBuilder) {}
 
@@ -21,14 +24,13 @@ export class CheckoutFormComponent {
       {
         name: ["", [Validators.required]],
         address: ["", [Validators.required]],
-        phone: ["", [Validators.required]]
+        phone: ['', [Validators.required, Validators.pattern("^01[0-2,5]{1}[0-9]{8}$")]]
       }
     )
 
   }
   onSubmit(): void {
     this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
   }
 }

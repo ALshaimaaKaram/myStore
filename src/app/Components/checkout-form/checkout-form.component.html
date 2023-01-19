@@ -1,24 +1,25 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="form-group m-3">
   <div class="form-group m-3">
     <label for="name">Name</label>
-    <input type="text"  [class.is-invalid]="
-    checkoutForm.controls['name'].invalid &&
-    checkoutForm.controls['name'].touched"
-    [class.is-valid]="checkoutForm.controls['name'].valid" class="form-control" id="name" placeholder="Enter Your Name">
+    <input type="text" class="form-control" id="name" name="name" required minlength="5" appForbiddenName="name" [(ngModel)]="name" #username="ngModel">
+  </div>
+  <div class="m-3 alert alert alert-danger" *ngIf="username.invalid && username.dirty">
+    Please provide your name and must contain at least 5 characters.
   </div>
   <div class="form-group m-3">
     <label for="Address">Address</label>
-    <input type="text" [class.is-invalid]="
-    checkoutForm.controls['name'].invalid &&
-    checkoutForm.controls['name'].touched"
-    [class.is-valid]="checkoutForm.controls['name'].valid" class="form-control" id="Address" placeholder="Address">
+    <input type="text" class="form-control" name="address" required minlength="10" [(ngModel)]="address" #youraddress="ngModel">
+  </div>
+  <div class="m-3 alert alert alert-danger" *ngIf="youraddress.invalid && youraddress.dirty">
+    Please provide your Address and must contain at least 10 characters.
   </div>
   <div class="form-group m-3">
-    <label for="Phone">Phone</label>
-    <input type="tel" [class.is-invalid]="
-    checkoutForm.controls['name'].invalid &&
-    checkoutForm.controls['name'].touched"
-    [class.is-valid]="checkoutForm.controls['name'].valid" placeholder="Phone" class="form-control" id="Phone">
+    <label for="phone">Phone</label>
+    <input type="tel" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="phone" name="phone" required pattern="01[0-2,5]{1}[0-9]{8}" appForbiddenName="phone" [(ngModel)]="phone" #yourphone="ngModel">
   </div>
-  <button class="btn btn-success m-3" routerLink="/confirmation" [disabled]="checkoutForm.invalid" >Purchase</button>
+  <div class="m-3 alert alert alert-danger" *ngIf="yourphone.invalid && yourphone.dirty">
+    Please provide your phone and must contain 11 number (01000000000).
+  </div>
+
+  <button type="submit" class="btn btn-success m-3" [disabled]="form.invalid" routerLink="/confirmation">Purchase</button>
 </form>

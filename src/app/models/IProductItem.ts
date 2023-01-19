@@ -2,5 +2,6 @@ export interface IProductItem {
   name: string,
   id: number,
   price:number,
-  image: string
+  image: string,
+  description:string
 }
