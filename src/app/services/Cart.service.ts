@@ -9,8 +9,25 @@ export class CartService {
   items: IProductItem[] = []
 constructor() { }
 
+isFound:boolean = false;
 addToshppingCart(product:IProductItem){
-  this.items.push(product);
+  // for (let index = 0; index < this.items.length; index++) {
+  //   if(this.items[index]==product)
+  //       {
+  //         //this.isFound = true;
+  //         return true;
+  //       }
+  // }
+  // this.items.push(product);
+  // return false;
+
+  if(this.items.some(item => item.id === product.id))
+    return true;
+  else
+  {
+    this.items.push(product);
+    return false;
+  }
 }
 
 getItems() {

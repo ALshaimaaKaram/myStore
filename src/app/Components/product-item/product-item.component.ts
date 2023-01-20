@@ -13,7 +13,13 @@ export class ProductItemComponent {
   }
 
   addToCart(){
-    this.cartService.addToshppingCart(this.product)
-    window.alert('Your product has been added to the cart!');
+    if(this.cartService.addToshppingCart(this.product))
+    {
+      window.alert('Your product already in the cart!');
+    }
+    else
+    {
+      window.alert('Your product has been added to the cart!');
+    }
   }
 }

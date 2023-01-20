@@ -17,6 +17,5 @@ export class CartComponent {
     this.items = this.cartService.getItems();
     this.totalcost = this.cartService.getTotalCost();
     window.alert('Your product deleted');
-
   }
 }

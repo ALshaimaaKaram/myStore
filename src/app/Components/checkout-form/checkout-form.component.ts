@@ -33,4 +33,19 @@ export class CheckoutFormComponent {
     this.items = this.cartService.clearCart();
     this.checkoutForm.reset();
   }
+
+  modelChangeName(e:any)
+  {
+    this.name = e;
+  }
+
+  modelChangeAddress(e:any)
+  {
+    this.address = e;
+  }
+
+  modelChangePhone(e:any)
+  {
+    this.phone = e;
+  }
 }
