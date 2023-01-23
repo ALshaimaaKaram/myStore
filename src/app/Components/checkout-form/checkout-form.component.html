@@ -18,7 +18,7 @@
     <input type="tel" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' id="phone" name="phone" required pattern="01[0-2,5]{1}[0-9]{8}" appForbiddenName="phone" [(ngModel)]="phone" (ngModelChange)="modelChangePhone($event)" #yourphone="ngModel">
   </div>
   <div class="m-3 alert alert alert-danger" *ngIf="yourphone.invalid && yourphone.dirty">
-    Please provide your phone and must contain 11 number (01000000000).
+    Please provide your phone and must contain 11 number and start with 01(0-1-2-5) ex: (010xxxxxxxx),(011xxxxxxxx),(012xxxxxxxx),(015xxxxxxxx).
   </div>
 
   <button type="submit" class="btn btn-success m-3" [disabled]="form.invalid" routerLink="/confirmation">Purchase</button>
